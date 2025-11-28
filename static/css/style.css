@@ -16,10 +16,13 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.66) !important;
+    -webkit-backdrop-filter: saturate(140%) blur(64px);
+    backdrop-filter: saturate(140%) blur(64px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 24px 120px rgba(0, 0, 0, 0.18);
+    transition: background-color 200ms ease, box-shadow 200ms ease, transform 150ms ease;
+    z-index: 1030;
 }
 
 .navbar-brand {
@@ -42,7 +45,7 @@ body {
 /* Hero Section */
 .hero-section {
     padding: 100px 0;
-    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80');
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), url('/static/img/IoT.jpg');
     background-size: cover;
     background-position: center;
     min-height: 80vh;
