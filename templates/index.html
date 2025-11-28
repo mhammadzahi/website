@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center text-white">
+    <div class="container hero-content">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1>Innovating the Future with IoT</h1>
+                <p class="lead mb-4">Transforming businesses and homes with smart, connected solutions. Join the
+                    revolution today.</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg me-3">Get Started</a>
+                <a href="{{ url_for('about') }}" class="btn btn-outline-light btn-lg">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title gradient-text">Our Services</h2>
+            <p class="text-muted">Comprehensive IoT solutions tailored to your needs</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 p-4 border-0">
+                    <div class="card-body text-center">
+                        <i class="fas fa-home fa-3x text-primary mb-3"></i>
+                        <h4 class="card-title mb-3">Smart Home</h4>
+                        <p class="card-text text-muted">Automate your living space with intelligent lighting, security,
+                            and climate control systems.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 border-0">
+                    <div class="card-body text-center">
+                        <i class="fas fa-industry fa-3x text-primary mb-3"></i>
+                        <h4 class="card-title mb-3">Industrial IoT</h4>
+                        <p class="card-text text-muted">Optimize manufacturing processes with real-time monitoring and
+                            predictive maintenance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 border-0">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                        <h4 class="card-title mb-3">Data Analytics</h4>
+                        <p class="card-text text-muted">Turn data into actionable insights with our advanced analytics
+                            and reporting tools.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section-padding" style="background-color: #ffffff;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+                    alt="IoT Technology" class="img-fluid rounded shadow-lg">
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <h2 class="section-title mb-4">Why Choose Yalla IoT?</h2>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-check-circle fa-2x text-primary"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="fw-bold">Expert Team</h5>
+                        <p class="text-muted">Our engineers are pioneers in the IoT space with years of experience.</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-shield-alt fa-2x text-primary"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="fw-bold">Secure by Design</h5>
+                        <p class="text-muted">Security is not an afterthought. We build it into every layer of our
+                            solutions.</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-headset fa-2x text-primary"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="fw-bold">24/7 Support</h5>
+                        <p class="text-muted">We are always here to help you ensure your systems run smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding text-center cta-bg">
+    <div class="container">
+        <h2 class="gradient-text mb-3">Ready to Transform Your Business?</h2>
+        <p class="text-black-50 mb-4 lead">Let's discuss how IoT can drive growth for you.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-dark btn-lg">Contact Us Today</a>
+    </div>
+</section>
+{% endblock %}

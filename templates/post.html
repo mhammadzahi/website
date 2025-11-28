@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} - Yalla IoT{% endblock %}
+
+{% block content %}
+<div class="container section-padding" style="margin-top: 60px;">
+    {% if post %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('blog') }}" class="text-decoration-none">Blog</a>
+                    </li>
+                    <li class="breadcrumb-item active text-muted" aria-current="page">{{ post.title }}</li>
+                </ol>
+            </nav>
+
+            <img src="{{ post.image }}" class="img-fluid rounded mb-4 w-100" alt="{{ post.title }}">
+
+            <h1 class="mb-3">{{ post.title }}</h1>
+            <div class="d-flex align-items-center mb-4 text-muted">
+                <div class="me-3">
+                    <i class="far fa-user me-1"></i> {{ post.author }}
+                </div>
+                <div>
+                    <i class="far fa-calendar-alt me-1"></i> {{ post.date }}
+                </div>
+            </div>
+
+            <div class="text-muted lead" style="line-height: 1.8;">
+                {{ post.content }}
+            </div>
+
+            <div class="mt-5 pt-4 border-top">
+                <a href="{{ url_for('blog') }}" class="btn btn-outline-primary"><i class="fas fa-arrow-left me-2"></i>
+                    Back to Blog</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <h2>Post not found</h2>
+        <a href="{{ url_for('blog') }}" class="btn btn-primary mt-3">Return to Blog</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
