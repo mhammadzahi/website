@@ -14,6 +14,11 @@
             {% if success %}
             <div class="alert alert-success text-center mb-4" role="alert">
                 Thank you! Your message has been sent successfully. We'll be in touch soon.
+                <script>
+                    setTimeout(function() {
+                        document.location.href = "{{ url_for('index') }}";
+                    }, 5000);
+                </script>
             </div>
             {% endif %}
 

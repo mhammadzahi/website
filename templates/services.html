@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Services Hero -->
+<section class="hero-section text-center text-white">
+    <div class="container hero-content">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="gradient-text">Our Services</h1>
+                <p class="lead mb-4">Comprehensive IoT services built to scale and secure your operations.</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-gradient btn-lg me-3">Get Started</a>
+                <a href="{{ url_for('blog') }}" class="btn btn-outline-light btn-lg">Read Our Blog</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services List -->
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title gradient-text">What We Offer</h2>
+            <p class="text-muted">Tailored services to meet your IoT transformation goals</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- 1 -->
+            <div class="col-md-6">
+                <div class="card h-100 p-0 border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-4 col-md-4">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Remote Monitoring" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                        </div>
+                        <div class="col-8 col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title gradient-text">1. Real Time Remote Monitoring</h4>
+                                <p class="card-text text-muted mb-0">Continuous, real-time monitoring of your devices and systems with live dashboards and remote diagnostics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-md-6">
+                <div class="card h-100 p-0 border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-4 col-md-4">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Predictive Maintenance" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                        </div>
+                        <div class="col-8 col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title gradient-text">2. Predictive Maintenance</h4>
+                                <p class="card-text text-muted mb-0">Leverage sensor data and machine learning to predict failures and reduce downtime.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-md-6">
+                <div class="card h-100 p-0 border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-4 col-md-4">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Alerts" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                        </div>
+                        <div class="col-8 col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title gradient-text">3. Alerting through Different Channels</h4>
+                                <p class="card-text text-muted mb-0">Flexible alerting and notifications via SMS, email, push notifications and integrations with popular platforms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-md-6">
+                <div class="card h-100 p-0 border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-4 col-md-4">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Digital Transformation" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                        </div>
+                        <div class="col-8 col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title gradient-text">4. Digital Transformation</h4>
+                                <p class="card-text text-muted mb-0">Strategic modernization of processes and systems to harness data-driven decision making across your organization.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="col-md-6">
+                <div class="card h-100 p-0 border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-4 col-md-4">
+                            <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=80" alt="IoT Security" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                        </div>
+                        <div class="col-8 col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title gradient-text">5. IoT Security</h4>
+                                <p class="card-text text-muted mb-0">End-to-end security assessments and implementations to protect devices, connectivity, and data.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="col-md-6">
+                <div class="card h-100 p-0 border-0">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-4 col-md-4">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Factory Assessment" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                        </div>
+                        <div class="col-8 col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title gradient-text">6. SIRI System Factory Assessment</h4>
+                                <p class="card-text text-muted mb-0">In-depth factory assessments using the SIRI methodology to evaluate readiness and maximize ROI for IoT deployments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section-padding text-center cta-bg">
+    <div class="container">
+        <h2 class="gradient-text mb-3">Ready to start?</h2>
+        <p class="text-black-50 mb-4">Contact our team to schedule an assessment or pilot.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-gradient btn-lg">Contact Us</a>
+    </div>
+</section>
+
+{% endblock %}

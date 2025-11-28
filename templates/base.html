@@ -35,6 +35,9 @@
                         <a class="nav-link" href="{{ url_for('about') }}">About</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('services') }}">Services</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
@@ -47,6 +50,8 @@
             </div>
         </div>
     </nav>
+
+    <div class="nav-spacer" aria-hidden="true"></div>
 
     <!-- Main Content -->
     <main>
@@ -89,7 +94,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3 mb-4">
-                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <h6 class="fw-bold mb-3">Join our weekly newsletter</h6>
                     <form>
                         <div class="input-group mb-3">
                             <input type="email" class="form-control border-secondary" placeholder="Email">
