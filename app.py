@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from functions.database import get_db, new_subscriber, new_message
+from functions.database import new_subscriber, new_message, get_posts_paginated, get_post_by_slug
 # from functions.helpers import slugify
 
 # from flask_babel import Babel
@@ -28,47 +28,13 @@ def services():
 @app.route('/blog')
 @app.route('/blog/page/<int:page>')
 def blog(page=1):
-    per_page = 9
-    # Query total posts from DB
-    conn = get_db()
-    cur = conn.cursor()
-    cur.execute("SELECT COUNT(1) FROM posts")
-    total_posts = cur.fetchone()[0]
-    total_pages = (total_posts + per_page - 1) // per_page  # Ceiling division
-
-    # Calculate offset
-    start = (page - 1) * per_page
-
-    # Get posts for current page (newest first)
-    cur.execute("SELECT * FROM posts ORDER BY id DESC LIMIT ? OFFSET ?", (per_page, start))
-    rows = cur.fetchall()
-    paginated_posts = [dict(r) for r in rows]
-    conn.close()
-    
-    # Calculate page range for pagination display
-    page_range = []
-    if total_pages <= 7:
-        page_range = list(range(1, total_pages + 1))
-    else:
-        if page <= 4:
-            page_range = list(range(1, 6)) + ['...', total_pages]
-        elif page >= total_pages - 3:
-            page_range = [1, '...'] + list(range(total_pages - 4, total_pages + 1))
-        else:
-            page_range = [1, '...'] + list(range(page - 1, page + 2)) + ['...', total_pages]
-    
-    return render_template('blog.html', posts=paginated_posts, page=page, total_pages=total_pages, page_range=page_range)
+    data = get_posts_paginated(page=page, per_page=9)
+    return render_template('blog.html', posts=data['posts'], page=data['page'], total_pages=data['total_pages'], page_range=data['page_range'])
 
 
 @app.route('/post/<path:post_slug>')
 def post(post_slug):
-    # Find post by slug (derived from title)
-    conn = get_db()
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM posts WHERE slug=?", (post_slug,))
-    row = cur.fetchone()
-    post = dict(row) if row else None
-    conn.close()
+    post = get_post_by_slug(post_slug)
     return render_template('post.html', post=post)
 
 
