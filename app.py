@@ -1,32 +1,34 @@
 from flask import Flask, render_template, request, jsonify
 from functions.helpers import slugify
-from functions.modul import get_db, init_db, seed_db, SEED_POSTS
+from functions.database import get_db
+
+# from flask_babel import Babel
+# app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+# app.config['BABEL_SUPPORTED_LOCALES'] = ['en', 'ar']
+# babel = Babel(app)
 
 
 app = Flask(__name__)
-
-
-# Seed posts (moved from in-memory list). These will be inserted into the DB on first run.
-# Initialize DB and seed using functions in functions/modul.py (seed data imported from modul)
-init_db()
-seed_db(SEED_POSTS)
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
 @app.route('/about')
 def about():
     return render_template('about.html')
 
+
 @app.route('/services')
 def services():
-    return render_template('services.html') # We might just keep this in index for now or create a separate page
+    return render_template('services.html')
+
 
 @app.route('/blog')
 @app.route('/blog/page/<int:page>')
 def blog(page=1):
-    per_page = 6
+    per_page = 9
     # Query total posts from DB
     conn = get_db()
     cur = conn.cursor()
@@ -70,35 +72,42 @@ def post(post_slug):
     return render_template('post.html', post=post)
 
 
-@app.route('/api/post/<path:post_slug>/title')
-def post_title_api(post_slug):
-    """Return the post title as JSON for a given post ID.
+# @app.route('/api/post/<path:post_slug>/title')
+# def post_title_api(post_slug):
+#     """Return the post title as JSON for a given post ID.
 
-    Response examples:
-    - 200: {"id": 1, "title": "The Future of Smart Homes"}
-    - 404: {"error": "Post not found"}
-    """
-    conn = get_db()
-    cur = conn.cursor()
-    cur.execute("SELECT title FROM posts WHERE slug=?", (post_slug,))
-    row = cur.fetchone()
-    conn.close()
-    if row:
-        return jsonify({"slug": post_slug, "title": row['title']}), 200
-    return jsonify({"error": "Post not found"}), 404
+#     Response examples:
+#     - 200: {"id": 1, "title": "The Future of Smart Homes"}
+#     - 404: {"error": "Post not found"}
+#     """
+#     conn = get_db()
+#     cur = conn.cursor()
+#     cur.execute("SELECT title FROM posts WHERE slug=?", (post_slug,))
+#     row = cur.fetchone()
+#     conn.close()
+#     if row:
+#         print('----------row:', row)
+#         return jsonify({"slug": post_slug, "title": row['title']}), 200
+#     return jsonify({"error": "Post not found"}), 404
 
-
+@app.route('/api/newsletter/subscribe', methods=['POST'])
+def newsletter_subscribe():
+    # Here you would handle the newsletter subscription logic
+    # For now, we'll just print to console
+    print(f"***Email: {request.json.get('email')}")
+    return jsonify({"message": "Subscription successful"}), 200
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
         # Here we would handle the form submission (e.g., send email)
         # For now, we'll just print to console
-        print(f"Name: {request.form.get('name')}")
-        print(f"Email: {request.form.get('email')}")
-        print(f"Subject: {request.form.get('subject')}")
-        print(f"Message: {request.form.get('message')}")
-        return render_template('contact.html', success=True)
+        data = request.json
+        print(f"Name: {data.get('name')}")
+        print(f"Email: {data.get('email')}")
+        print(f"Subject: {data.get('subject')}")
+        print(f"Message: {data.get('message')}")
+        return jsonify({"success": True, "message": "Message sent successfully"}), 200
     return render_template('contact.html')
 
 
