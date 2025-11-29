@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
-from functions.helpers import slugify
-from functions.database import get_db
+from functions.database import get_db, new_subscriber, new_message
+# from functions.helpers import slugify
 
 # from flask_babel import Babel
 # app.config['BABEL_DEFAULT_LOCALE'] = 'en'
@@ -72,42 +72,32 @@ def post(post_slug):
     return render_template('post.html', post=post)
 
 
-# @app.route('/api/post/<path:post_slug>/title')
-# def post_title_api(post_slug):
-#     """Return the post title as JSON for a given post ID.
-
-#     Response examples:
-#     - 200: {"id": 1, "title": "The Future of Smart Homes"}
-#     - 404: {"error": "Post not found"}
-#     """
-#     conn = get_db()
-#     cur = conn.cursor()
-#     cur.execute("SELECT title FROM posts WHERE slug=?", (post_slug,))
-#     row = cur.fetchone()
-#     conn.close()
-#     if row:
-#         print('----------row:', row)
-#         return jsonify({"slug": post_slug, "title": row['title']}), 200
-#     return jsonify({"error": "Post not found"}), 404
-
 @app.route('/api/newsletter/subscribe', methods=['POST'])
 def newsletter_subscribe():
-    # Here you would handle the newsletter subscription logic
-    # For now, we'll just print to console
-    print(f"***Email: {request.json.get('email')}")
+    email_address = request.json.get('email')
+
+    if not new_subscriber(email_address):
+        print("Failed to add new subscriber: ", email_address)
+
     return jsonify({"message": "Subscription successful"}), 200
+
+
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        # Here we would handle the form submission (e.g., send email)
-        # For now, we'll just print to console
         data = request.json
-        print(f"Name: {data.get('name')}")
-        print(f"Email: {data.get('email')}")
-        print(f"Subject: {data.get('subject')}")
-        print(f"Message: {data.get('message')}")
+        name = data.get('name')
+        email_address = data.get('email')
+        subject = data.get('subject')
+        message = data.get('message')
+
+        if not new_message(name, email_address, subject, message):
+            print("Failed to save message: ", data)
+
         return jsonify({"success": True, "message": "Message sent successfully"}), 200
+
+    # GET
     return render_template('contact.html')
 
 
