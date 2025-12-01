@@ -1,13 +1,70 @@
 {% extends 'base.html' %}
 
+{% block title %}Yalla IoT - Leading IoT Solutions Provider in Saudi Arabia | Smart Home & Industrial IoT{% endblock %}
+
+{% block meta_description %}Transform your business with Yalla IoT's cutting-edge IoT solutions in Saudi Arabia. Experts in smart home automation, industrial IoT, real-time factory monitoring, and Industry 4.0 transformation.{% endblock %}
+
+{% block meta_keywords %}IoT solutions Saudi Arabia, IoT company Riyadh, smart home automation KSA, industrial IoT Saudi Arabia, factory monitoring systems, Industry 4.0 Saudi Arabia, SIRI assessment, predictive maintenance, IoT security, IoT consulting{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Yalla IoT - Home",
+  "description": "Leading IoT solutions provider in Saudi Arabia offering smart home automation, industrial IoT, and Industry 4.0 transformation services.",
+  "url": "{{ request.url }}",
+  "mainEntity": {
+    "@type": "Service",
+    "serviceType": "IoT Solutions",
+    "provider": {
+      "@type": "Organization",
+      "name": "Yalla IoT"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Saudi Arabia"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "IoT Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Software Development"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Industrial IoT"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Factory Machines Real Time Monitoring"
+          }
+        }
+      ]
+    }
+  }
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 <!-- Hero Section -->
-<section class="hero-section text-center text-white">
+<section class="hero-section text-center text-white" aria-labelledby="hero-heading">
     <div class="container hero-content">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h1>Innovating the Future with IoT</h1>
+                <h1 id="hero-heading">Innovating the Future with IoT</h1>
                 <p class="lead mb-4">Transforming businesses and homes with smart, connected solutions. Join the
                     revolution today.</p>
                 <a href="{{ url_for('contact') }}" class="btn btn-gradient btn-lg me-3">Get Started</a>
@@ -18,81 +75,81 @@
 </section>
 
 <!-- Services Section -->
-<section class="section-padding">
+<section class="section-padding" aria-labelledby="services-heading">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title gradient-text">Our Services</h2>
+            <h2 id="services-heading" class="section-title gradient-text">Our Services</h2>
             <p class="text-muted">Comprehensive IoT solutions tailored to your needs</p>
         </div>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="card h-100 p-4 border-0">
+                <article class="card h-100 p-4 border-0">
                     <div class="card-body text-center">
-                        <i class="fas fa-code fa-3x text-primary mb-3"></i>
-                        <h4 class="card-title mb-3">Software Development</h4>
+                        <i class="fas fa-code fa-3x text-primary mb-3" aria-hidden="true"></i>
+                        <h3 class="card-title mb-3">Software Development</h3>
                         <p class="card-text text-muted">Custom software solutions tailored to your business needs with modern technologies and best practices.</p>
                     </div>
-                </div>
+                </article>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 p-4 border-0">
+                <article class="card h-100 p-4 border-0">
                     <div class="card-body text-center">
-                        <i class="fas fa-industry fa-3x text-primary mb-3"></i>
-                        <h4 class="card-title mb-3">Industrial IoT</h4>
+                        <i class="fas fa-industry fa-3x text-primary mb-3" aria-hidden="true"></i>
+                        <h3 class="card-title mb-3">Industrial IoT</h3>
                         <p class="card-text text-muted">Optimize manufacturing processes with real-time monitoring and
                             predictive maintenance.</p>
                     </div>
-                </div>
+                </article>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 p-4 border-0">
+                <article class="card h-100 p-4 border-0">
                     <div class="card-body text-center">
-                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
-                        <h4 class="card-title mb-3">Factory Machines Real Time Monitoring</h4>
+                        <i class="fas fa-chart-line fa-3x text-primary mb-3" aria-hidden="true"></i>
+                        <h3 class="card-title mb-3">Factory Machines Real Time Monitoring</h3>
                         <p class="card-text text-muted">Turn data into Monitoring insights with our advanced and smart tools.</p>
                     </div>
-                </div>
+                </article>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 p-4 border-0">
+                <article class="card h-100 p-4 border-0">
                     <div class="card-body text-center">
-                        <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
-                        <h4 class="card-title mb-3">IoT Security</h4>
+                        <i class="fas fa-shield-alt fa-3x text-primary mb-3" aria-hidden="true"></i>
+                        <h3 class="card-title mb-3">IoT Security</h3>
                         <p class="card-text text-muted">Protect your connected devices and networks with enterprise-grade security solutions and threat monitoring.</p>
                     </div>
-                </div>
+                </article>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 p-4 border-0">
+                <article class="card h-100 p-4 border-0">
                     <div class="card-body text-center">
-                        <i class="fas fa-tools fa-3x text-primary mb-3"></i>
-                        <h4 class="card-title mb-3">Predictive Maintenance</h4>
+                        <i class="fas fa-tools fa-3x text-primary mb-3" aria-hidden="true"></i>
+                        <h3 class="card-title mb-3">Predictive Maintenance</h3>
                         <p class="card-text text-muted">Prevent equipment failures before they occur with AI-powered predictive analytics and maintenance scheduling.</p>
                     </div>
-                </div>
+                </article>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 p-4 border-0">
+                <article class="card h-100 p-4 border-0">
                     <div class="card-body text-center">
-                        <i class="fas fa-clipboard-check fa-3x text-primary mb-3"></i>
-                        <h4 class="card-title mb-3">SIRI System Factory Assessment For Industry 4.0</h4>
+                        <i class="fas fa-clipboard-check fa-3x text-primary mb-3" aria-hidden="true"></i>
+                        <h3 class="card-title mb-3">SIRI System Factory Assessment For Industry 4.0</h3>
                         <p class="card-text text-muted">Comprehensive digital readiness assessment using SIRI framework to guide your Industry 4.0 transformation journey.</p>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Why Choose Us -->
-<section class="section-padding" style="background-color: #ffffff;">
+<section class="section-padding" style="background-color: #ffffff;" aria-labelledby="why-choose-heading">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{{ url_for('static', filename='img/smart-factory.jpg') }}" alt="IoT Technology" class="img-fluid rounded shadow-lg">
+                <img src="{{ url_for('static', filename='img/smart-factory.jpg') }}" alt="Smart factory with IoT sensors and real-time monitoring systems" class="img-fluid rounded shadow-lg" loading="lazy">
             </div>
             <div class="col-lg-6 ps-lg-5">
-                <h2 class="section-title gradient-text mb-4">Why Choose Yalla IoT?</h2>
+                <h2 id="why-choose-heading" class="section-title gradient-text mb-4">Why Choose Yalla IoT?</h2>
                 <div class="d-flex mb-4">
                     <div class="flex-shrink-0">
                         <i class="fas fa-check-circle fa-2x text-primary"></i>
@@ -127,31 +184,31 @@
 </section>
 
 <!-- Our Partners Section -->
-<section class="section-padding" style="background-color: #ffffff;">
+<section class="section-padding" style="background-color: #ffffff;" aria-labelledby="partners-heading">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title gradient-text">Our Partners</h2>
+            <h2 id="partners-heading" class="section-title gradient-text">Our Partners</h2>
             <p class="text-muted">Trusted by industry leaders across the region</p>
         </div>
         <div class="row g-4 align-items-center justify-content-center">
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="partner-logo-wrapper">
-                    <img src="{{ url_for('static', filename='img/partners/aramco.png') }}" alt="Aramco" class="partner-logo">
+                    <img src="{{ url_for('static', filename='img/partners/aramco.png') }}" alt="Aramco - Saudi Arabian Oil Company partner" class="partner-logo" loading="lazy">
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="partner-logo-wrapper">
-                    <img src="{{ url_for('static', filename='img/partners/sabic.png') }}" alt="SABIC" class="partner-logo">
+                    <img src="{{ url_for('static', filename='img/partners/sabic.png') }}" alt="SABIC - Saudi Basic Industries Corporation partner" class="partner-logo" loading="lazy">
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="partner-logo-wrapper">
-                    <img src="{{ url_for('static', filename='img/partners/maaden.png') }}" alt="Ma'aden" class="partner-logo">
+                    <img src="{{ url_for('static', filename='img/partners/maaden.png') }}" alt="Ma'aden - Saudi Arabian Mining Company partner" class="partner-logo" loading="lazy">
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="partner-logo-wrapper">
-                    <img src="{{ url_for('static', filename='img/partners/sec.png') }}" alt="SEC" class="partner-logo">
+                    <img src="{{ url_for('static', filename='img/partners/sec.png') }}" alt="SEC - Saudi Electricity Company partner" class="partner-logo" loading="lazy">
                 </div>
             </div>
         </div>

@@ -1,10 +1,39 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ post.title }} - Yalla IoT{% endblock %}
+{% block title %}{{ post.title }} - Yalla IoT Blog{% endblock %}
+
+{% block meta_description %}{{ post.content[:155] | striptags }}{% endblock %}
+
+{% block og_type %}article{% endblock %}
+{% block og_image %}{{ post.image }}{% endblock %}
+
+{% block structured_data %}
+{% if post %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ post.title }}",
+  "image": "{{ post.image }}",
+  "datePublished": "{{ post.date }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ post.author }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Yalla IoT"
+  },
+  "description": "{{ post.content[:155] | striptags }}"
+}
+</script>
+{% endif %}
+{% endblock %}
 
 {% block content %}
 <div class="container section-padding" style="margin-top: 60px;">
     {% if post %}
+    <article itemscope itemtype="https://schema.org/BlogPosting">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <nav aria-label="breadcrumb" class="mb-4">
@@ -15,28 +44,29 @@
                 </ol>
             </nav>
 
-            <img src="{{ post.image }}" class="img-fluid rounded mb-4 w-100" alt="{{ post.title }}">
+            <img src="{{ post.image }}" class="img-fluid rounded mb-4 w-100" alt="{{ post.title }}" itemprop="image" loading="eager">
 
-            <h1 class="mb-3">{{ post.title }}</h1>
+            <h1 class="mb-3" itemprop="headline">{{ post.title }}</h1>
             <div class="d-flex align-items-center mb-4 text-muted">
                 <div class="me-3">
-                    <i class="far fa-user me-1"></i> {{ post.author }}
+                    <i class="far fa-user me-1" aria-hidden="true"></i> <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ post.author }}</span></span>
                 </div>
                 <div>
-                    <i class="far fa-calendar-alt me-1"></i> {{ post.date }}
+                    <i class="far fa-calendar-alt me-1" aria-hidden="true"></i> <time itemprop="datePublished" datetime="{{ post.date }}">{{ post.date }}</time>
                 </div>
             </div>
 
-            <div class="text-muted lead" style="line-height: 1.8;">
+            <div class="text-muted lead" style="line-height: 1.8;" itemprop="articleBody">
                 {{ post.content | safe }}
             </div>
 
             <div class="mt-5 pt-4 border-top">
-                <a href="{{ url_for('blog') }}" class="btn btn-gradient"><i class="fas fa-arrow-left me-2"></i>
+                <a href="{{ url_for('blog') }}" class="btn btn-gradient"><i class="fas fa-arrow-left me-2" aria-hidden="true"></i>
                     Back to Blog</a>
             </div>
         </div>
     </div>
+    </article>
     {% else %}
         <div class="text-center py-5">
         <h2>Post not found</h2>

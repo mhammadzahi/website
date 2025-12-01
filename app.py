@@ -7,6 +7,12 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -20,6 +26,11 @@ def about():
 @app.route('/services')
 def services():
     return render_template('services.html')
+
+
+@app.route('/terms')
+def terms():
+    return render_template('terms.html')
 
 
 @app.route('/blog')
@@ -65,15 +76,15 @@ def contact():
 
 
 
-@app.route('/sitemap.xml')
+@app.route('/sitemap.xml', methods=['GET'])
 def sitemap():
-    """Generate sitemap.xml dynamically"""
     pages = [
         {'loc': '/', 'priority': '1.0', 'changefreq': 'daily'},
         {'loc': '/about', 'priority': '0.8', 'changefreq': 'monthly'},
         {'loc': '/services', 'priority': '0.8', 'changefreq': 'monthly'},
         {'loc': '/blog', 'priority': '0.9', 'changefreq': 'daily'},
         {'loc': '/contact', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': '/terms', 'priority': '0.5', 'changefreq': 'yearly'},
     ]
     
     # Add all blog posts
@@ -105,18 +116,11 @@ def sitemap():
 
 
 
-@app.route('/robots.txt')
+@app.route('/robots.txt', methods=['GET'])
 def robots():
     with open('robots.txt', 'r') as f:
         robots_txt = f.read()
     return Response(robots_txt, mimetype='text/plain')
-
-
-
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-
 
 
 if __name__ == '__main__':
@@ -124,7 +128,6 @@ if __name__ == '__main__':
     # from asgiref.wsgi import WsgiToAsgi
     # asgi_app = WsgiToAsgi(app)  # Convert Flask WSGI to ASGI
     # uvicorn.run(asgi_app, host="0.0.0.0", port=5000)
-    # app.run(port=5000, host="0.0.0.0")  #production
     
     app.run(debug=True, port=5000, host="0.0.0.0")  #development
     #app.run()

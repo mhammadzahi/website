@@ -1,12 +1,36 @@
 {% extends 'base.html' %}
 
-{% block title %}About Us - Yalla IoT{% endblock %}
+{% block title %}About Yalla IoT - Leading IoT Solutions Company in Saudi Arabia{% endblock %}
+
+{% block meta_description %}Learn about Yalla IoT, a pioneering IoT solutions company in Saudi Arabia. Founded in 2020, we specialize in smart home automation, industrial IoT, and Industry 4.0 transformation services.{% endblock %}
+
+{% block meta_keywords %}about Yalla IoT, IoT company Saudi Arabia, IoT solutions provider Riyadh, smart technology company KSA, industrial IoT experts, Industry 4.0 consultants{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Yalla IoT",
+  "description": "Learn about Yalla IoT, a leading IoT solutions provider in Saudi Arabia, founded in 2020.",
+  "url": "{{ request.url }}",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Yalla IoT",
+    "foundingDate": "2020",
+    "description": "Leading provider of IoT solutions in Saudi Arabia",
+    "knowsAbout": ["IoT", "Smart Home", "Industrial IoT", "Industry 4.0", "Predictive Maintenance"]
+  }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 <div class="container section-padding" style="margin-top: 60px;">
+    <section aria-labelledby="about-heading">
     <div class="row align-items-center mb-5">
         <div class="col-lg-6">
-            <h1 class="section-title gradient-text title-underline">About Yalla IoT</h1>
+            <h1 id="about-heading" class="section-title gradient-text title-underline">About Yalla IoT</h1>
             <p class="lead text-muted">We are a team of passionate engineers and visionaries dedicated to connecting the
                 physical and digital worlds.</p>
             <p class="text-muted">Founded in 2020, Yalla IoT has rapidly grown to become a leading provider of IoT
@@ -17,83 +41,86 @@
         </div>
         <div class="col-lg-6">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
-                alt="Team working" class="img-fluid rounded shadow">
+                alt="Yalla IoT team collaborating on IoT solutions and technology projects" class="img-fluid rounded shadow" loading="lazy">
         </div>
     </div>
+    </section>
 
+    <section aria-labelledby="values-heading">
     <div class="row mt-5">
         <div class="col-12 text-center mb-5">
-            <h2 class="gradient-text title-underline-sm">Our Values</h2>
+            <h2 id="values-heading" class="gradient-text title-underline-sm">Our Values</h2>
         </div>
         <div class="col-md-4 text-center mb-4">
-            <div class="card h-100 p-4 border-0">
+            <article class="card h-100 p-4 border-0">
                 <div class="card-body text-center">
-                    <i class="fas fa-lightbulb fa-3x text-primary mb-3"></i>
-                    <h4 class="card-title mb-3">Innovation</h4>
+                    <i class="fas fa-lightbulb fa-3x text-primary mb-3" aria-hidden="true"></i>
+                    <h3 class="card-title mb-3">Innovation</h3>
                     <p class="card-text text-muted">We constantly push the boundaries of what is possible.</p>
                 </div>
-            </div>
+            </article>
         </div>
         <div class="col-md-4 text-center mb-4">
-            <div class="card h-100 p-4 border-0">
+            <article class="card h-100 p-4 border-0">
                 <div class="card-body text-center">
-                    <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
-                    <h4 class="card-title mb-3">Integrity</h4>
+                    <i class="fas fa-handshake fa-3x text-primary mb-3" aria-hidden="true"></i>
+                    <h3 class="card-title mb-3">Integrity</h3>
                     <p class="card-text text-muted">We build trust through transparency and honest relationships.</p>
                 </div>
-            </div>
+            </article>
         </div>
         <div class="col-md-4 text-center mb-4">
-            <div class="card h-100 p-4 border-0">
+            <article class="card h-100 p-4 border-0">
                 <div class="card-body text-center">
-                    <i class="fas fa-users fa-3x text-primary mb-3"></i>
-                    <h4 class="card-title mb-3">Collaboration</h4>
+                    <i class="fas fa-users fa-3x text-primary mb-3" aria-hidden="true"></i>
+                    <h3 class="card-title mb-3">Collaboration</h3>
                     <p class="card-text text-muted">We believe in the power of working together to solve complex
                         problems.</p>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
+    </section>
 
     <!-- Services Section -->
-    <section class="section-padding">
+    <section class="section-padding" aria-labelledby="about-services-heading">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title gradient-text">Our Services</h2>
+                <h2 id="about-services-heading" class="section-title gradient-text">Our Services</h2>
                 <p class="text-muted">Comprehensive IoT solutions tailored to your needs</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card h-100 p-4 border-0">
+                    <article class="card h-100 p-4 border-0">
                         <div class="card-body text-center">
-                            <i class="fas fa-home fa-3x text-primary mb-3"></i>
-                            <h4 class="card-title mb-3">Smart Home</h4>
+                            <i class="fas fa-home fa-3x text-primary mb-3" aria-hidden="true"></i>
+                            <h3 class="card-title mb-3">Smart Home</h3>
                             <p class="card-text text-muted">Automate your living space with intelligent lighting,
                                 security,
                                 and climate control systems.</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 p-4 border-0">
+                    <article class="card h-100 p-4 border-0">
                         <div class="card-body text-center">
-                            <i class="fas fa-industry fa-3x text-primary mb-3"></i>
-                            <h4 class="card-title mb-3">Industrial IoT</h4>
+                            <i class="fas fa-industry fa-3x text-primary mb-3" aria-hidden="true"></i>
+                            <h3 class="card-title mb-3">Industrial IoT</h3>
                             <p class="card-text text-muted">Optimize manufacturing processes with real-time monitoring
                                 and
                                 predictive maintenance.</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 p-4 border-0">
+                    <article class="card h-100 p-4 border-0">
                         <div class="card-body text-center">
-                            <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
-                            <h4 class="card-title mb-3">Factory Machines Real Time Monitoring</h4>
+                            <i class="fas fa-chart-line fa-3x text-primary mb-3" aria-hidden="true"></i>
+                            <h3 class="card-title mb-3">Factory Machines Real Time Monitoring</h3>
                             <p class="card-text text-muted">Turn data into Monitoring insights with our advanced and
                                 smart tools.</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </div>

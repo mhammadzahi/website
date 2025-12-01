@@ -1,13 +1,63 @@
 {% extends 'base.html' %}
 
+{% block title %}IoT Services - Software Development, Industrial IoT & Industry 4.0 | Yalla IoT{% endblock %}
+
+{% block meta_description %}Comprehensive IoT services in Saudi Arabia: Custom software development, industrial IoT solutions, real-time factory monitoring, IoT security, predictive maintenance, and SIRI Industry 4.0 assessments.{% endblock %}
+
+{% block meta_keywords %}IoT services, software development Saudi Arabia, industrial IoT solutions, factory monitoring, IoT security services, predictive maintenance, SIRI assessment, Industry 4.0 services, IoT consulting{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "IoT Solutions",
+  "provider": {
+    "@type": "Organization",
+    "name": "Yalla IoT"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Saudi Arabia"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Software Development",
+        "description": "Custom software solutions with modern technologies"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Industrial IoT",
+        "description": "Real-time monitoring and predictive maintenance"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Factory Machines Real Time Monitoring",
+        "description": "Advanced monitoring with smart tools"
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 <!-- Services Hero -->
-<section class="hero-section text-center text-white">
+<section class="hero-section text-center text-white" aria-labelledby="services-hero-heading">
     <div class="container hero-content">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h1 class="gradient-text">Our Services</h1>
+                <h1 id="services-hero-heading" class="gradient-text">Our Services</h1>
                 <p class="lead mb-4">Comprehensive IoT services built to scale and secure your operations.</p>
                 <a href="{{ url_for('contact') }}" class="btn btn-gradient btn-lg me-3">Get Started</a>
                 <a href="{{ url_for('blog') }}" class="btn btn-outline-light btn-lg">Read Our Blog</a>
@@ -17,114 +67,114 @@
 </section>
 
 <!-- Services List -->
-<section class="section-padding">
+<section class="section-padding" aria-labelledby="services-list-heading">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title gradient-text">What We Offer</h2>
+            <h2 id="services-list-heading" class="section-title gradient-text">What We Offer</h2>
             <p class="text-muted">Tailored services to meet your IoT transformation goals</p>
         </div>
 
         <div class="row g-4">
             <!-- 1 -->
             <div class="col-md-6">
-                <div class="card h-100 p-0 border-0">
+                <article class="card h-100 p-0 border-0">
                     <div class="row g-0 align-items-center">
                         <div class="col-4 col-md-4">
-                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Software Development" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Custom software development with modern code and technologies" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;" loading="lazy">
                         </div>
                         <div class="col-8 col-md-8">
                             <div class="card-body">
-                                <h4 class="card-title gradient-text">Software Development</h4>
+                                <h3 class="card-title gradient-text">Software Development</h3>
                                 <p class="card-text text-muted mb-0">Custom software solutions tailored to your business needs with modern technologies and best practices. From web applications to enterprise systems, we deliver scalable and maintainable code.</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
 
             <!-- 2 -->
             <div class="col-md-6">
-                <div class="card h-100 p-0 border-0">
+                <article class="card h-100 p-0 border-0">
                     <div class="row g-0 align-items-center">
                         <div class="col-4 col-md-4">
-                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Industrial IoT" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Industrial IoT sensors and automation systems in manufacturing facility" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;" loading="lazy">
                         </div>
                         <div class="col-8 col-md-8">
                             <div class="card-body">
-                                <h4 class="card-title gradient-text">Industrial IoT</h4>
+                                <h3 class="card-title gradient-text">Industrial IoT</h3>
                                 <p class="card-text text-muted mb-0">Optimize manufacturing processes with real-time monitoring and predictive maintenance. Connect your factory floor to the cloud for enhanced visibility and operational efficiency.</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
 
             <!-- 3 -->
             <div class="col-md-6">
-                <div class="card h-100 p-0 border-0">
+                <article class="card h-100 p-0 border-0">
                     <div class="row g-0 align-items-center">
                         <div class="col-4 col-md-4">
-                            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="Factory Machines Monitoring" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="Real-time factory machines monitoring dashboard with analytics" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;" loading="lazy">
                         </div>
                         <div class="col-8 col-md-8">
                             <div class="card-body">
-                                <h4 class="card-title gradient-text">Factory Machines Real Time Monitoring</h4>
+                                <h3 class="card-title gradient-text">Factory Machines Real Time Monitoring</h3>
                                 <p class="card-text text-muted mb-0">Turn data into monitoring insights with our advanced and smart tools. Real-time dashboards provide instant visibility into machine performance and production metrics.</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
 
             <!-- 4 -->
             <div class="col-md-6">
-                <div class="card h-100 p-0 border-0">
+                <article class="card h-100 p-0 border-0">
                     <div class="row g-0 align-items-center">
                         <div class="col-4 col-md-4">
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="IoT Security" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="IoT security and cybersecurity solutions for connected devices" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;" loading="lazy">
                         </div>
                         <div class="col-8 col-md-8">
                             <div class="card-body">
-                                <h4 class="card-title gradient-text">IoT Security</h4>
+                                <h3 class="card-title gradient-text">IoT Security</h3>
                                 <p class="card-text text-muted mb-0">Protect your connected devices and networks with enterprise-grade security solutions and threat monitoring. Comprehensive security assessments and implementations safeguard your IoT infrastructure.</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
 
             <!-- 5 -->
             <div class="col-md-6">
-                <div class="card h-100 p-0 border-0">
+                <article class="card h-100 p-0 border-0">
                     <div class="row g-0 align-items-center">
                         <div class="col-4 col-md-4">
-                            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80" alt="Predictive Maintenance" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80" alt="Predictive maintenance with AI-powered analytics and monitoring" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;" loading="lazy">
                         </div>
                         <div class="col-8 col-md-8">
                             <div class="card-body">
-                                <h4 class="card-title gradient-text">Predictive Maintenance</h4>
+                                <h3 class="card-title gradient-text">Predictive Maintenance</h3>
                                 <p class="card-text text-muted mb-0">Prevent equipment failures before they occur with AI-powered predictive analytics and maintenance scheduling. Leverage sensor data and machine learning to reduce downtime and extend asset life.</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
 
             <!-- 6 -->
             <div class="col-md-6">
-                <div class="card h-100 p-0 border-0">
+                <article class="card h-100 p-0 border-0">
                     <div class="row g-0 align-items-center">
                         <div class="col-4 col-md-4">
-                            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80" alt="Factory Assessment" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;">
+                            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80" alt="SIRI framework Industry 4.0 factory assessment and digital transformation" class="img-fluid rounded-start" style="height:140px; width:100%; object-fit:cover;" loading="lazy">
                         </div>
                         <div class="col-8 col-md-8">
                             <div class="card-body">
-                                <h4 class="card-title gradient-text">SIRI System Factory Assessment For Industry 4.0</h4>
+                                <h3 class="card-title gradient-text">SIRI System Factory Assessment For Industry 4.0</h3>
                                 <p class="card-text text-muted mb-0">Comprehensive digital readiness assessment using SIRI framework to guide your Industry 4.0 transformation journey. Evaluate your current state and develop a roadmap for smart manufacturing.</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </div>

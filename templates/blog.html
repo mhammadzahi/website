@@ -1,32 +1,54 @@
 {% extends 'base.html' %}
 
-{% block title %}Blog - Yalla IoT{% endblock %}
+{% block title %}IoT Blog - Latest News, Insights & Technology Trends | Yalla IoT{% endblock %}
+
+{% block meta_description %}Stay updated with the latest IoT trends, technology insights, and industry news. Expert articles on smart home, industrial IoT, Industry 4.0, and digital transformation in Saudi Arabia.{% endblock %}
+
+{% block meta_keywords %}IoT blog, IoT news, smart home articles, industrial IoT insights, Industry 4.0 trends, IoT technology Saudi Arabia, digital transformation news{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Yalla IoT Blog",
+  "description": "Latest news and insights about IoT and technology",
+  "url": "{{ request.url }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Yalla IoT"
+  }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 <div class="container section-padding" style="margin-top: 60px;">
+    <section aria-labelledby="blog-heading">
     <div class="text-center mb-5">
-        <h1 class="section-title gradient-text">Latest News & Insights</h1>
+        <h1 id="blog-heading" class="section-title gradient-text">Latest News & Insights</h1>
         <p class="text-muted">Stay updated with the latest trends in IoT and technology.</p>
     </div>
 
     <div class="row g-4">
         {% for post in posts %}
         <div class="col-md-4">
-            <div class="card h-100 border-0 overflow-hidden">
+            <article class="card h-100 border-0 overflow-hidden">
                 <img src="{{ post.image }}" class="card-img-top" alt="{{ post.title }}"
-                    style="height: 200px; object-fit: cover;">
+                    style="height: 200px; object-fit: cover;" loading="lazy">
                 <div class="card-body d-flex flex-column">
-                    <div class="mb-2 text-muted small">
-                        <i class="far fa-calendar-alt me-1"></i> {{ post.date }}
-                    </div>
-                    <h5 class="card-title fw-bold">{{ post.title }}</h5>
+                    <time class="mb-2 text-muted small" datetime="{{ post.date }}">
+                        <i class="far fa-calendar-alt me-1" aria-hidden="true"></i> {{ post.date }}
+                    </time>
+                    <h2 class="card-title fw-bold h5">{{ post.title }}</h2>
                     <p class="card-text text-muted flex-grow-1">{{ post.content[:100] | safe }}...</p>
-                    <a href="{{ url_for('post', post_slug=post.slug) }}" class="btn btn-primary mt-3">Read More</a>
+                    <a href="{{ url_for('post', post_slug=post.slug) }}" class="btn btn-primary mt-3" aria-label="Read more about {{ post.title }}">Read More</a>
                 </div>
-            </div>
+            </article>
         </div>
         {% endfor %}
     </div>
+    </section>
 
     <!-- Pagination -->
     {% if total_pages > 1 %}
