@@ -1,9 +1,15 @@
 User-agent: *
 Allow: /
 
-# Disallow admin or sensitive paths if any
-# Disallow: /admin/
-# Disallow: /api/
+# Disallow API endpoints
+Disallow: /api/
 
-# Sitemap location (update with your actual domain)
+# Disallow static assets (optional - prevents direct crawling of images/css/js)
+Disallow: /static/
+
+# Disallow database and environment files (extra protection)
+Disallow: /*.db$
+Disallow: /env/
+
+# Sitemap location
 Sitemap: https://www.yallaiot.com/sitemap.xml
