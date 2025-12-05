@@ -20,6 +20,7 @@ def page_not_found(e):
 
 @app.route('/')
 def index():
+    print("Home page accessed")
     return render_template('index.html')
 
 
