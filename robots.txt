@@ -13,3 +13,4 @@ Disallow: /env/
 
 # Sitemap location
 Sitemap: https://www.yallaiot.com/sitemap.xml
+Sitemap: https://yallaiot.com/sitemap.xml
