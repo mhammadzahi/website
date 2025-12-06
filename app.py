@@ -145,11 +145,15 @@ def robots():
     return Response(robots_txt, mimetype='text/plain')
 
 
+
+
+# import uvicorn
+# from asgiref.wsgi import WsgiToAsgi
+# asgi_app = WsgiToAsgi(app)  # Convert Flask WSGI to ASGI
+# uvicorn.run(asgi_app, host="0.0.0.0", port=5000)
+
+
+
 # if __name__ == '__main__':
-    # import uvicorn
-    # from asgiref.wsgi import WsgiToAsgi
-    # asgi_app = WsgiToAsgi(app)  # Convert Flask WSGI to ASGI
-    # uvicorn.run(asgi_app, host="0.0.0.0", port=5000)
-    
-    # app.run(debug=True, port=5000, host="0.0.0.0")  #development
-    # app.run()
+#     app.run(debug=True, port=5000, host="0.0.0.0")
+
