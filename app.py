@@ -49,6 +49,9 @@ def blog(page=1):
 @app.route('/post/<path:post_slug>')
 def post(post_slug):
     post = get_post_by_slug(post_slug)
+    if not post:
+        return render_template('404.html'), 404
+        
     return render_template('post.html', post=post)
 
 
